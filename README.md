@@ -1,4 +1,4 @@
-# GEKKO-Rechner — Ab wann lohnt sich in der Logistik ein Weiterbildungsmentor?
+# GEKKO-Vergleichsrechner — Ab wann rechnet sich in der Logistik ein Weiterbildungsmentor?
 
 **Entwurfsstand. Nicht freigegeben.** Diese Seite trägt den Vermerk „Entwurf, nicht
 veröffentlicht" sichtbar im Kopf. Sie ist technisch erreichbar, aber inhaltlich nicht
@@ -9,26 +9,26 @@ Adresse nicht weiterverbreiten, solange der Vermerk im Kopf steht.
 
 ## Was die Seite rechnet
 
-Eine **Schwelle**, keine Ersparnis: Was müsste in einem Betrieb im Jahr eintreten, damit
-sich die Stunden eines Weiterbildungsmentors rechnen? Drei Wege zur selben Schwelle —
-vermiedene Neueinstellungen, Ausfalltage in der Gruppe, Ausfalltage je Beschäftigtem. Einer
-davon genügt; sie zählen nicht zusammen.
+Was **nötig wäre**, keine Ersparnis: Was müsste in einem Betrieb im Jahr eintreten, damit
+sich die Stunden eines Weiterbildungsmentors rechnen? Zwei Wege — Mitarbeiter, die bleiben
+(keine Neubesetzung notwendig), oder Krankheitstage, die wegfallen. Einer davon genügt; sie
+zählen nicht zusammen.
 
-Die Seite behauptet **keine Wirkung**. Ob ein Weiterbildungsmentor diese Schwellen
-erreicht, ist nicht belegt: Die Transferstudie zum betrieblichen Weiterbildungsmentoring,
+Die Seite behauptet **keine Wirkung**. Ob ein Weiterbildungsmentor das Nötige erreicht,
+ist nicht belegt: Die Transferstudie zum betrieblichen Weiterbildungsmentoring,
 die das Institut für Gerontologische Forschung im Auftrag des Bundesinstituts für
-Berufsbildung vorgelegt hat (Mai 2025), weist dazu ausdrücklich keine Effektgrößen aus —
-befragt wurden 20 Mentoren. Jeder Eingabewert ist in der Quellentabelle am Fuß der Seite
-als Referenzwert, Ableitung oder offengelegte Annahme ausgewiesen, mit Fundstelle.
+Berufsbildung vorgelegt hat (Mai 2025), nennt dazu ausdrücklich keine Zahlen zur Wirkung —
+befragt wurden 20 Mentoren. Jeder Eingabewert ist in der Tabelle „Woher die Zahlen kommen“
+als Wert aus einer Quelle, berechnet oder geschätzt ausgewiesen, mit Fundstelle.
 
 ## Was sie mit Daten tut
 
 Nichts, was den Nutzer betrifft. Sie rechnet ausschließlich im Browser, lädt von fremden
-Servern nichts nach — Logo, Zeichen und Arbeitsmappe liegen in der Datei selbst — und setzt
+Servern nichts nach — Logo und Zeichen liegen in der Datei selbst — und setzt
 keine Cookies.
 
 Über diese Adresse aufgerufen wird **nichts gespeichert**: Jeder Aufruf beginnt bei den
-Vorbelegungen. Wer die Seite herunterlädt oder als App einrichtet, dessen Eingaben bleiben
+Beispielwerten. Wer die Seite herunterlädt oder als App einrichtet, dessen Eingaben bleiben
 **auf dem eigenen Gerät** und werden nicht übertragen. Die Seite sagt in einer eigenen
 Zeile unter den Schaltflächen, in welchem der drei Zustände sie gerade ist. „Standardwerte
 wiederherstellen" löscht die gespeicherten Werte.
@@ -37,7 +37,7 @@ wiederherstellen" löscht die gespeicherten Werte.
 
 | Datei | Zweck |
 |---|---|
-| `index.html` | die ganze Anwendung: Rechner, Logo, eingebettete Excel-Arbeitsmappe |
+| `index.html` | die ganze Anwendung: Rechner und Logo |
 | `manifest.webmanifest` | macht die Seite installierbar („Zum Startbildschirm") |
 | `sw.js` | hält die Seite offline verfügbar; Netz zuerst, Vorrat als Rückfall |
 | `zeichen/` | App-Zeichen in 192 und 512 Pixeln sowie für iOS |

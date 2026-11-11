@@ -1,7 +1,7 @@
 // Dienstskript: haelt die Seite offline verfuegbar.
 // Die Seite ist eine einzige Datei ohne Nachladungen, deshalb genuegt ein kleiner Vorrat.
 var MARKE = "gekko-rechner-";     // alle Vorraete dieser Anwendung beginnen so
-var VORRAT = MARKE + "1";         // bei einer neuen Fassung hochzaehlen
+var VORRAT = MARKE + "2";         // bei einer neuen Fassung hochzaehlen
 var DATEIEN = [
   "./",
   "./index.html",
