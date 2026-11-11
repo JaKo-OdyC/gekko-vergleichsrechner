@@ -5,7 +5,10 @@ veröffentlicht" sichtbar im Kopf. Sie ist technisch erreichbar, aber inhaltlich
 abgestimmt: Eine Anbieterkennzeichnung und ein Datenschutzhinweis fehlen noch. Bitte die
 Adresse nicht weiterverbreiten, solange der Vermerk im Kopf steht.
 
-→ https://jako-odyc.github.io/gekko-rechner/
+→ https://jako-odyc.github.io/gekko-vergleichsrechner/
+
+Die Vorfassung mit eingebetteter Excel-Tabelle steht weiter unter
+https://jako-odyc.github.io/gekko-rechner/ (Repo `gekko-rechner`).
 
 ## Was die Seite rechnet
 

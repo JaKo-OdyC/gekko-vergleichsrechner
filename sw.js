@@ -1,7 +1,10 @@
 // Dienstskript: haelt die Seite offline verfuegbar.
 // Die Seite ist eine einzige Datei ohne Nachladungen, deshalb genuegt ein kleiner Vorrat.
-var MARKE = "gekko-rechner-";     // alle Vorraete dieser Anwendung beginnen so
-var VORRAT = MARKE + "2";         // bei einer neuen Fassung hochzaehlen
+// Eigene Marke seit der neuen Adresse: Die Vorfassung liegt unter derselben Hauptadresse
+// (jako-odyc.github.io/gekko-rechner/) und raeumt alles weg, was mit "gekko-rechner-"
+// beginnt. Mit derselben Marke wuerden sich beide Seiten gegenseitig den Vorrat loeschen.
+var MARKE = "gekko-vergleichsrechner-";   // alle Vorraete dieser Anwendung beginnen so
+var VORRAT = MARKE + "1";                 // bei einer neuen Fassung hochzaehlen
 var DATEIEN = [
   "./",
   "./index.html",
