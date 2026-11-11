@@ -1303,6 +1303,29 @@ seiteVerdrahten();
 appVerdrahten();
 $("knopf_zuruecksetzen").addEventListener("click", zuruecksetzen);
 
+// Druck: Seit dem Umbau stehen die Erklaerungen in i-Schaltern, und die Herkunftstabelle
+// ist zunaechst zugeklappt. Auf Papier laesst sich nichts aufklappen - also vor dem Druck
+// alles oeffnen und danach den Stand des Bildschirms wiederherstellen (Befund 11.11.2026).
+// Per Skript und nicht per Stilregel, weil sich ein geschlossener Schalter nicht in jedem
+// Browser allein ueber eine Druckregel oeffnen laesst.
+var vorDruck = null;
+function druckAuf(){
+  if(vorDruck) return;
+  vorDruck = {schalter: [], quellenZu: $("quellen").hasAttribute("hidden")};
+  Array.prototype.forEach.call(document.querySelectorAll("details.i"), function(d){
+    if(!d.open){ vorDruck.schalter.push(d); d.open = true; }
+  });
+  $("quellen").removeAttribute("hidden");
+}
+function druckZu(){
+  if(!vorDruck) return;
+  vorDruck.schalter.forEach(function(d){ d.open = false; });
+  if(vorDruck.quellenZu) $("quellen").setAttribute("hidden", "");
+  vorDruck = null;
+}
+window.addEventListener("beforeprint", druckAuf);
+window.addEventListener("afterprint", druckZu);
+
 // Ganz zum Schluss: Der Warnbalken verschwindet nur, wenn das Skript vollstaendig
 // durchgelaufen ist. Bricht es vorher ab, bleibt die Warnung stehen - zu Recht.
 (function(){ var w = $("ohne_skript"); if(w && w.parentNode){ w.parentNode.removeChild(w); } })();
