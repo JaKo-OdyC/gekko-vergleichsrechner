@@ -19,7 +19,9 @@
     --leiste:400px;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  /* text-size-adjust: Sonst vergroessert Safari auf dem iPhone einzelne Textbloecke nach
+     eigenem Ermessen, und die Groessen der Seite stimmen untereinander nicht mehr. */
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%}
   body{
     margin:0; padding:0; background:var(--creme); color:var(--text);
     font-family:var(--textschrift); font-size:18px; line-height:1.55;
@@ -271,7 +273,11 @@
     .leiste-kasten{position:static; max-height:none; overflow:visible}
   }
   @media (max-width:640px){
-    body{font-size:16px}
+    /* Smartphone: groesser, nicht kleiner (Owner-Befund iPhone 11, 11.11.2026: "zu klein").
+       Fast alle Groessen der Seite haengen an rem; die Wurzel hebt sie gemeinsam an:
+       Lauftext 18 statt 16 Pixel, Kleintexte rund 15 bis 17 statt 13 bis 15. */
+    html{font-size:112.5%}
+    body{font-size:1rem}
     .kopf-innen,.buehne{padding-left:1rem; padding-right:1rem}
     .kopf img{height:46px}
     h1{font-size:1.25rem}
@@ -1326,8 +1332,20 @@ function druckZu(){
   if(vorDruck.quellenZu) $("quellen").setAttribute("hidden", "");
   vorDruck = null;
 }
-window.addEventListener("beforeprint", druckAuf);
-window.addEventListener("afterprint", druckZu);
+// Nur mit Maus oder Touchpad anmelden. Auf dem iPhone standen nach dem Veroeffentlichen
+// alle Schalter offen (Owner-Befund 11.11.2026, iPhone 11, Safari). Vermutete Ursache,
+// auf dem Geraet nicht nachgemessen: Safari meldet dort "vor dem Druck", ohne dass
+// zuverlaessig "nach dem Druck" folgt - dann bleibt alles offen. Auf dem Smartphone
+// zaehlen die Schalter mehr als ein vollstaendiger Ausdruck.
+var FINGERBEDIENUNG = !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+if(!FINGERBEDIENUNG){
+  window.addEventListener("beforeprint", druckAuf);
+  window.addEventListener("afterprint", druckZu);
+  // Rueckfall, falls "nach dem Druck" auch hier einmal ausbleibt: Die naechste Bedienung
+  // stellt den Stand des Bildschirms wieder her. Waehrend des Druckdialogs kommt keine an.
+  window.addEventListener("pointerdown", druckZu, true);
+  window.addEventListener("keydown", druckZu, true);
+}
 
 // Ganz zum Schluss: Der Warnbalken verschwindet nur, wenn das Skript vollstaendig
 // durchgelaufen ist. Bricht es vorher ab, bleibt die Warnung stehen - zu Recht.
